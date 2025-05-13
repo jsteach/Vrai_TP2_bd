@@ -95,6 +95,7 @@ typedef struct {
     Client customer;
     WinRect win;
     Texture* img;
+    Items* db;
     #ifdef _DEBUG
     int debug;
     #endif
