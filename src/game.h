@@ -1,5 +1,5 @@
 #pragma once
-
+#include "sqlite3.h"
 #include "knob.h"
 
 typedef enum {
@@ -95,7 +95,7 @@ typedef struct {
     Client customer;
     WinRect win;
     Texture* img;
-    Items* db;
+    sqlite3* db;
     #ifdef _DEBUG
     int debug;
     #endif

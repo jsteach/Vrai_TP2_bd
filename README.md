@@ -11,3 +11,41 @@ Pour compiler le project:
 
 Pour debugger le project:
 `F5`
+
+```mermaid
+erDiagram
+Customer{
+    CustomerID INTEGER PRIMARY KEY
+    name TEXT
+    money_left INT
+}
+Character{
+  CharacterID INTEGER PRIMARY KEY
+  name TEXT
+  dialog TEXT
+}
+Object{
+  ObjectID INTEGER PRIMARY KEY
+  name TEXT
+  cost INT
+}
+Product{
+   ProductID INTEGER PRIMARY KEY
+   name TEXT
+}
+Order{
+   OrderID INTEGER PRIMARY KEY
+   Exportation_date INT
+   Deadline INT
+}
+Category{
+   CategoryID INTEGER PRIMARY KEY
+   name TEXT
+}
+    Order ||--o{ Product : has
+    Object ||--o{ Customer : has
+    Character ||--o{ Customer : has
+    Product ||--o{ Object : has
+    Category ||--o{ Product : has
+
+```
