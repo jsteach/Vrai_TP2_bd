@@ -7,10 +7,11 @@
 #include <stdint.h>
 #include <assert.h>
 #include "raygui.h"
+#include "raylib.h"
 
-#define KNOB_IMPLEMENTATION
 #include "knob.h"
-
+#include "database.h"
+#include "store.h"
 #include "game.h"
 #include "login.h"
 

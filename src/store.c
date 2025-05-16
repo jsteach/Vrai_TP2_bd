@@ -81,7 +81,7 @@ const char* view_data_to_apply = "INSERT INTO Character(class, clothes, item)"
 "(Orc, blue, armor),";
 
 void apply_view(GameData* g){
-    if (sqlite3_exec(g->db, view_to_apply, * view_data_to_apply,  NULL, NULL, NULL) != SQLITE_OK) {
+    if (sqlite3_exec(g->db, view_to_apply,  NULL, NULL, NULL) != SQLITE_OK) {
         LOG_SQLITE3_ERROR(g->db);
         return;
     }
