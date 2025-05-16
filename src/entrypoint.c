@@ -6,6 +6,7 @@
 #include <string.h>
 #include <stdint.h>
 #include <assert.h>
+#include "raygui.h"
 
 #define KNOB_IMPLEMENTATION
 #include "knob.h"
@@ -14,7 +15,7 @@
 #include "login.h"
 
 
-// #define LOG_SQLITE3_ERROR(db) TraceLog(LOG_ERROR, "%s:%d: SQLITE3 ERROR: %s\n", __FILE__, __LINE__, sqlite3_errmsg(db))
+#define LOG_SQLITE3_ERROR(db) TraceLog(LOG_ERROR, "%s:%d: SQLITE3 ERROR: %s\n", __FILE__, __LINE__, sqlite3_errmsg(db))
 
 #define HEAP_SIZE 2048 * 2048 * 4
 static uint8_t* heap = NULL;

@@ -4,7 +4,6 @@
 #include "database.h"
 
 void ui_store(GameData* g);
-void show_character(GameData* g);
 void select_item(GameData* g);
 void buy_item(GameData* g);
 void sort_elements(GameData* g);
