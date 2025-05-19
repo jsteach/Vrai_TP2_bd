@@ -15,33 +15,33 @@ Pour debugger le project:
 ```mermaid
 erDiagram
    Character{
-   CharacterID INTEGER PRIMARY KEY
-   name VARCHAR[128],
+   CharacterID INTEGER PRIMARY KEY,
+   name TEXT,
    class TEXT,
    clothes TEXT,
    level INT,
    dialog TEXT,
-   class VARCHAR[128],
+   class TEXT,
    }
    Customer{
    CustomerID INTEGER PRIMARY KEY,
    name TEXT,
    money_left INT,
-   password VARCHAR[128],
-   email VARCHAR[255],"
+   password TEXT,
+   email TEXT,
    FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),
    FOREIGN KEY (ObjectID) REFERENCES Object(ObjectID)
    }
    Object{
       ObjectID INTEGER PRIMARY KEY
-      name VARCHAR[128],
+      name TEXT,
       type TEXT,
       cost INT,
    }
    Product{
       CREATE TABLE IF NOT EXISTS Produit 
       ProductID INTEGER PRIMARY KEY, 
-      name VARCHAR[128], 
+      name TEXT, 
       cost INT, 
       FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID) 
    }
@@ -56,7 +56,7 @@ erDiagram
    Category{
       CREATE TABLE IF NOT EXISTS Category 
       CategoryID INTEGER PRIMARY KEY,  
-      name VARCHAR[128],  
+      name TEXT,  
       description TEXT  
    }
     Order ||--o{ Product : has
