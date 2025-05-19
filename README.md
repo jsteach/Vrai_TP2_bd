@@ -64,5 +64,4 @@ erDiagram
     Character ||--o{ Customer : has
     Product ||--o{ Object : has
     Category ||--o{ Product : has
-
 ```
