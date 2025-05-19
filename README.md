@@ -14,55 +14,54 @@ Pour debugger le project:
 
 ```mermaid
 erDiagram
-   Character{
-   CharacterID INTEGER PRIMARY KEY,
-   name TEXT,
-   class TEXT,
-   clothes TEXT,
-   level INT,
-   dialog TEXT,
-   class TEXT,
+   Character {
+      CharacterID INTEGER PRIMARY KEY
+      name VARCHAR(128)
+      class VARCHAR(128)
+      clothes TEXT
+      level INT
+      dialog TEXT
    }
-   Customer{
-   CustomerID INTEGER PRIMARY KEY,
-   name TEXT,
-   money_left INT,
-   password TEXT,
-   email TEXT,
-   FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),
-   FOREIGN KEY (ObjectID) REFERENCES Object(ObjectID)
+   Customer {
+      CustomerID INTEGER PRIMARY KEY
+      name TEXT
+      money_left INT
+      password VARCHAR(128)
+      email VARCHAR(255)
+      CharacterID INTEGER
+      FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID)
    }
-   Object{
+   Object {
       ObjectID INTEGER PRIMARY KEY
-      name TEXT,
-      type TEXT,
-      cost INT,
+      name VARCHAR(128)
+      type TEXT
+      cost INT
    }
-   Product{
-      CREATE TABLE IF NOT EXISTS Produit 
-      ProductID INTEGER PRIMARY KEY, 
-      name TEXT, 
-      cost INT, 
-      FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID) 
+   Product {
+      ProductID INTEGER PRIMARY KEY
+      name VARCHAR(128)
+      cost INT
+      CategoryID INTEGER
+      FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID)
    }
-   Order{
-      CREATE TABLE IF NOT EXISTS Order 
-      OrderID INTEGER PRIMARY KEY,  
-      Client INT, 
-      Date DATE,  
-      Status BOOL,   
-      FOREIGN KEY (ProductID) REFERENCES Product(ProductID) 
+   Order {
+      OrderID INTEGER PRIMARY KEY
+      ClientID INTEGER
+      Date DATE
+      Status BOOL
+      ProductID INTEGER
+      FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
    }
-   Category{
-      CREATE TABLE IF NOT EXISTS Category 
-      CategoryID INTEGER PRIMARY KEY,  
-      name TEXT,  
-      description TEXT  
+   Category {
+      CategoryID INTEGER PRIMARY KEY
+      name VARCHAR(128)
+      description TEXT
    }
-    Order ||--o{ Product : has
-    Object ||--o{ Customer : has
-    Character ||--o{ Customer : has
-    Product ||--o{ Object : has
-    Category ||--o{ Product : has
+
+   Order ||--o{ Product : has
+   Object ||--o{ Customer : has
+   Character ||--o{ Customer : has
+   Product ||--o{ Object : has
+   Category ||--o{ Product : has
 
 ```
